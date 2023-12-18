@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./ProductSection.module.scss";
-import itemsData from "../JSON/items.json"
+import itemsData from "../JSON/items.json";
 
 export default function ProductSection() {
   return (
