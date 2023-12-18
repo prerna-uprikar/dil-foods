@@ -5,7 +5,7 @@ import itemsData from "../JSON/items.json";
 
 export default function ProductSection() {
   return (
-    <section className="my-[40px]">
+    <section className="my-[40px]" id="products">
       <h1 className="text-[28px] lg:text-[40px] text-[#590109] text-center mt-[40px] mb-[60px]">
         Our Products
       </h1>
