@@ -23,8 +23,9 @@
             }
         }
 
-        const removeItemFromCart = () => {
-            
+        const removeItemFromCart = (productdetails) => {
+            const updatedCart = cartItem.filter((cartItem) => cartItem.id !== productdetails);
+            setCartItem(updatedCart);
         }
 
 
