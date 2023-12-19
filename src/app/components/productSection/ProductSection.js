@@ -15,16 +15,17 @@ export default function ProductSection() {
       </h1>
       <div className="flex flex-wrap justify-center gap-[60px]">
         {itemsData.map((item) => (
+          <div  className={`${styles.productCard} cursor-pointer`}>
           <Link
             href={`/${item.id}`}
             key={item.id}
-            className={`${styles.productCard} cursor-pointer`}
           >
             <Image src={item.image} height={300} width={300} alt={item.name} />
             <h2 className="text-center pt-[10px] text-[18px] font-[500]">
               {item.name}
             </h2>
-            <div className="flex justify-between p-[20px]">
+          </Link>
+          <div className="flex justify-between p-[20px]">
               <span className="text-green">Rs. {item.price}</span>
               <span
                 className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]"
@@ -35,7 +36,7 @@ export default function ProductSection() {
                 Add
               </span>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </section>
