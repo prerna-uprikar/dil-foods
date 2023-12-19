@@ -44,7 +44,10 @@ export default function Page({ params }) {
                 Add
               </span>
               <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px] ml-[20px]" onClick={ () => { 
+               if(count > 0) {
                 removeItemFromCart(productdetails?.[0].id);
+                setCount(count -1);
+               }
               }}>
                 remove
               </span>
