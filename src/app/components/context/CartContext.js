@@ -9,20 +9,22 @@
         const [cartItem, setCartItem] = useState([]);
         console.log('cartItem', cartItem)
         
-        const addItemToCart = () => {
-            const existingItemIndex = cartItem.findIndex((cartItem) => cartItem.id === item.id);
+        const addItemToCart = (productdetails) => {
+            const existingItemIndex = cartItem.findIndex((cartItem) => cartItem.id === productdetails[0].id);
 
+            
             if (existingItemIndex !== -1) {
                 const updatedCart = [...cartItem];
-                updatedCart[existingItemIndex].quantity += 1;
+                const a = updatedCart[existingItemIndex];
+                updatedCart[existingItemIndex]= {...a, quantity: a.quantity + 1 };
                 setCartItem(updatedCart);
             } else {
-                setCartItem([...cartItem, { ...item, quantity: 1 }]);
+                setCartItem([...cartItem, { ...productdetails[0], quantity: 1 }]);
             }
         }
-        const removeItemFromCart = (id) => {
-            const updatedCart = cartItem.filter((item) => item.id !== id);
-            setCartItem(updatedCart);
+
+        const removeItemFromCart = () => {
+            
         }
 
 

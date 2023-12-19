@@ -5,7 +5,7 @@ import Header from "../components/header/Header";
 import Image from "next/image";
 import { CartContext } from "../components/context/CartContext";
 
-export default function ProductDetailPage({ params }) {
+export default function Page({ params }) {
   const { id } = params;
   // console.log(itemsData)
   const [productdetails, setProductDetails] = useState({});
@@ -16,7 +16,10 @@ export default function ProductDetailPage({ params }) {
     setProductDetails(itemDetails);
   }, [id]);
 
-  const { count, setCount, cartItem, setCartItem } = useContext(CartContext);
+
+  const { count, setCount, cartItem, setCartItem, addItemToCart, removeItemFromCart } =
+  useContext(CartContext);
+
 
   return (
     <>
@@ -31,16 +34,25 @@ export default function ProductDetailPage({ params }) {
             <p className="text-[18px]">{productdetails?.[0]?.description}</p>
             <div className="flex justify-between pt-[50px]">
               <span className="text-[18px] font-[500]">Rs. {productdetails?.[0]?.price}</span>
-              <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]"  onClick={() => {
-                  setCount(count + 1);
-                  setCartItem([...cartItem, ...productdetails]);
-                }}>
+              <div>
+              <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]" onClick={ () => { 
+                setCount(count + 1);
+                // setCartItem([...cartItem, ...productdetails])
+                addItemToCart(productdetails);
+              }}>
                 Add
               </span>
+              <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px] ml-[20px]" onClick={ () => { 
+              
+                removeItemFromCart(productdetails?.[0].id);
+              }}>
+                remove
+              </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+  </>
   );
 }
