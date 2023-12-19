@@ -5,7 +5,7 @@ export default function CheckoutSection() {
     return (
         <>
           <div className={styles.checkout}>
-            <h1 className="text-[28px] fomt-[500]"> Confirm Your Order</h1>
+            <h1 className="text-[28px] fomt-[500]"> Place Your Order</h1>
             <form className="flex flex-col items-center gap-[30px] pt-[40px]">
                   <input type="text" className={styles.forminput} placeholder="Enter you Name" />
                   <input type="text" className={styles.forminput} placeholder="Enter you Adress" />
