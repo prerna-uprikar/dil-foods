@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./ProductSection.module.scss";
-import itemsData from "../JSON/items.json";
+import itemsData from "../../../utils/JSON/items.json";
+import Link from "next/link";
 
 export default function ProductSection() {
   return (
@@ -11,7 +12,7 @@ export default function ProductSection() {
       </h1>
       <div className="flex flex-wrap justify-center gap-[60px]">
         {itemsData.map((item) => (
-          <div key={item.id} className={`${styles.productCard} cursor-pointer`}>
+          <Link href={`/${item.id}`} key={item.id} className={`${styles.productCard} cursor-pointer`}>
             <Image
               src={item.image}
               height={300}
@@ -27,7 +28,7 @@ export default function ProductSection() {
                 Add
               </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
