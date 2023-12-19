@@ -4,6 +4,7 @@ import itemsData from "../../utils/JSON/items.json";
 import Header from "../components/header/Header";
 import Image from "next/image";
 import { CartContext } from "../components/context/CartContext";
+import Link from "next/link";
 
 export default function Page({ params }) {
   const { id } = params;
@@ -48,6 +49,11 @@ export default function Page({ params }) {
                 remove
               </span>
               </div>
+            </div>
+            <div className="pt-[20px] flex justify-end">
+              <Link href="/#products" className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]">
+              Add More Products
+              </Link>
             </div>
           </div>
         </div>
