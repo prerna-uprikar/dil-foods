@@ -20,7 +20,7 @@ export default function CartSection() {
             {cartItem.map((i) => (
               <div className="flex gap-[40px] justify-center pt-[50px] pb-[20px]">
                 <div className="productimage">
-                  <Image src={i.image} height={300} width={300} />
+                  <Image src={i.image} height={300} width={300} alt="image" />
                 </div>
                 <div>
                   <div className="flex gap-[40px] pb-[10px]">

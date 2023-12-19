@@ -38,6 +38,7 @@ export default function Page({ params }) {
             width={400}
             height={400}
             className="rounded-[6px]"
+            alt="image"
           />
           <div className="xl:w-[40%] ">
             <p className="text-[18px]">{productdetails?.[0]?.description}</p>

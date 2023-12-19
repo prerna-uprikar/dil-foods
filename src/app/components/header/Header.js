@@ -20,6 +20,7 @@ export default function Header() {
           src="https://dilfoods.in/wp-content/uploads/2023/04/Dil-Foods-new-logo.png"
           width={70}
           height={60}
+          alt="image"
         /></Link>
         <Link
         href="/cart-page"
