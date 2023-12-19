@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import itemsData from "../../utils/JSON/items.json";
 import Header from "../components/header/Header";
 import Image from "next/image";
+import { CartProvider } from "../components/context/CartContext";
 
 export default function ProductDetailPage({ params }) {
   const { id } = params;
@@ -16,7 +17,7 @@ export default function ProductDetailPage({ params }) {
   }, [id]);
 
   return (
-    <div>
+    <CartProvider>
       <Header />
       <div className="itemsDetailCard">
         <h1 className="text-center font-[600] text-[30px]">
@@ -35,6 +36,6 @@ export default function ProductDetailPage({ params }) {
           </div>
         </div>
       </div>
-    </div>
+    </CartProvider>
   );
 }

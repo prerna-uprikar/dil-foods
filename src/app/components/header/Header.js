@@ -1,9 +1,13 @@
-import React from "react";
+"use client"
+import React, { useContext } from "react";
 import CartIcon from "@/assets/Cart";
 import styles from "./Header.module.scss";
 import Image from "next/image";
+import { CartContext } from "../context/CartContext";
 
 export default function Header() {
+
+  const { count } = useContext(CartContext)
   return (
     <header>
       <div
@@ -18,7 +22,7 @@ export default function Header() {
           title="Cart"
           className="bg-[#e30217] text-white px-[30px] py-[10px] flex gap-[10px] rounded-[6px]"
         >
-          Cart
+          Cart {count}
           <CartIcon />
         </button>
       </div>
