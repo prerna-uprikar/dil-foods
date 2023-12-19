@@ -5,10 +5,10 @@ import ProductSection from "./components/productSection/ProductSection";
 
 export default function Home() {
   return (
-    <CartProvider>
+    <>
       <Header />
       <Hero />
       <ProductSection />
-    </CartProvider>
+    </>
   );
 }

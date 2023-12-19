@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import itemsData from "../../utils/JSON/items.json";
 import Header from "../components/header/Header";
 import Image from "next/image";
-import { CartProvider } from "../components/context/CartContext";
+import { CartContext } from "../components/context/CartContext";
 
 export default function ProductDetailPage({ params }) {
   const { id } = params;
@@ -16,8 +16,10 @@ export default function ProductDetailPage({ params }) {
     setProductDetails(itemDetails);
   }, [id]);
 
+  const { count, setCount, cartItem, setCartItem } = useContext(CartContext);
+
   return (
-    <CartProvider>
+    <>
       <Header />
       <div className="itemsDetailCard">
         <h1 className="text-center font-[600] text-[30px]">
@@ -29,13 +31,16 @@ export default function ProductDetailPage({ params }) {
             <p className="text-[18px]">{productdetails?.[0]?.description}</p>
             <div className="flex justify-between pt-[50px]">
               <span className="text-[18px] font-[500]">Rs. {productdetails?.[0]?.price}</span>
-              <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]">
+              <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]"  onClick={() => {
+                  setCount(count + 1);
+                  setCartItem([...cartItem, ...productdetails]);
+                }}>
                 Add
               </span>
             </div>
           </div>
         </div>
       </div>
-    </CartProvider>
+    </>
   );
 }

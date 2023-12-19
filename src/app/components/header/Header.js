@@ -7,7 +7,8 @@ import { CartContext } from "../context/CartContext";
 
 export default function Header() {
 
-  const { count } = useContext(CartContext)
+  const { count } = useContext(CartContext);
+
   return (
     <header className="sticky top-0 z-10 bg-white">
       <div
