@@ -11,16 +11,19 @@ export default function Page({ params }) {
   // console.log(itemsData)
   const [productdetails, setProductDetails] = useState({});
 
-
   useEffect(() => {
-    const itemDetails = itemsData.filter(item => item.id == id);
+    const itemDetails = itemsData.filter((item) => item.id == id);
     setProductDetails(itemDetails);
   }, [id]);
 
-
-  const { count, setCount, cartItem, setCartItem, addItemToCart, removeItemFromCart } =
-  useContext(CartContext);
-
+  const {
+    count,
+    setCount,
+    cartItem,
+    setCartItem,
+    addItemToCart,
+    removeItemFromCart,
+  } = useContext(CartContext);
 
   return (
     <>
@@ -30,37 +33,60 @@ export default function Page({ params }) {
           {productdetails?.[0]?.name}
         </h1>
         <div className="p-[60px] flex justify-center flex-wrap gap-[60px] items-center">
-          <Image src={productdetails?.[0]?.image} width={400} height={400} className="rounded-[6px]" />
+          <Image
+            src={productdetails?.[0]?.image}
+            width={400}
+            height={400}
+            className="rounded-[6px]"
+          />
           <div className="xl:w-[40%] ">
             <p className="text-[18px]">{productdetails?.[0]?.description}</p>
             <div className="flex justify-between pt-[50px]">
-              <span className="text-[18px] font-[500]">Rs. {productdetails?.[0]?.price}</span>
+              <span className="text-[18px] font-[500]">
+                Rs. {productdetails?.[0]?.price}
+              </span>
               <div>
-              <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]" onClick={ () => { 
-                setCount(count + 1);
-                // setCartItem([...cartItem, ...productdetails])
-                addItemToCart(productdetails);
-              }}>
-                Add
-              </span>
-              <span className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px] ml-[20px]" onClick={ () => { 
-               if(count > 0) {
-                removeItemFromCart(productdetails?.[0].id);
-                setCount(count -1);
-               }
-              }}>
-                remove
-              </span>
+                <span
+                  className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]"
+                  onClick={() => {
+                    setCount(count + 1);
+                    // setCartItem([...cartItem, ...productdetails])
+                    addItemToCart(productdetails);
+                  }}
+                >
+                  Add
+                </span>
+                <span
+                  className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px] ml-[20px]"
+                  onClick={() => {
+                    if (count > 0) {
+                      removeItemFromCart(productdetails?.[0].id);
+                      setCount(count - 1);
+                    }
+                  }}
+                >
+                  remove
+                </span>
               </div>
             </div>
-            <div className="pt-[20px] flex justify-end">
-              <Link href="/#products" className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]">
-              Add More Products
+            <div className="pt-[20px] gap-[20px] flex justify-end">
+              <Link
+                href="/#products"
+                className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]"
+              >
+                Add More Products
+              </Link>
+
+              <Link
+                href="/cart-page"
+                className="border border-[#e30217] text-[#e30217] px-[10px] cursor-pointer rounded-[6px]"
+              >
+                Go to Cart
               </Link>
             </div>
           </div>
         </div>
       </div>
-  </>
+    </>
   );
 }
