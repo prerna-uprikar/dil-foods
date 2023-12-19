@@ -9,7 +9,7 @@ export default function Header() {
 
   const { count } = useContext(CartContext)
   return (
-    <header>
+    <header className="sticky top-0 z-10 bg-white">
       <div
         className={` ${styles.headerSection} flex items-center justify-between py-[10px] px-[40px]`}
       >
