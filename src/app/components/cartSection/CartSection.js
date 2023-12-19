@@ -38,7 +38,7 @@ export default function CartSection() {
                   <hr style={{ color: "black" }} />
                   <div className="flex gap-[40px] pt-[10px]">
                     <h2 className="w-[150px]">total</h2>
-                    <h2>300</h2>
+                    <h2>{i.quantity && i.price && i.price * i.quantity}</h2>
                   </div>
                 </div>
               </div>
