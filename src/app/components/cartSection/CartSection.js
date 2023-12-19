@@ -55,7 +55,7 @@ export default function CartSection() {
           <div className="pt-[40px] flex justify-center">
             <Link
               href="/checkout"
-              className="text-white bg-[#e30217] px-[30px] py-[10px] gap-[10px] rounded-[6px]"
+              className="text-white bg-[#e30217] px-[30px] py-[10px] gap-[10px] mb-[30px] rounded-[6px]"
             >
              Proceed to checkout
             </Link>
